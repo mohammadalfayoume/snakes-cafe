@@ -21,18 +21,20 @@ for item in menu:
         print(i)
     print("\n")
 
-collection = ['wings', 'cookies', 'spring rolls', 'salmon', 'steak', 'meat tornado','a literal', 'ice cream', 'cake', 'pie', 'coffee', 'tea', 'unicorn tears']
+collection = ['wings', 'cookies', 'spring rolls', 'salmon', 'steak', 'meat tornado',
+              'a literal', 'ice cream', 'cake', 'pie', 'coffee', 'tea', 'unicorn tears']
 
 print('''**********************************
 ** What would you like to order **
 **********************************''')
 
+
 def get_orders():
     dictionary = {}
-    order=''
+    order = ''
     while order != 'quit':
         order = input('>').lower()
-        if order=='quit':
+        if order == 'quit':
             print('Your orders are being preparing')
             break
         if order not in collection:
@@ -40,31 +42,32 @@ def get_orders():
             continue
         else:
             if order in dictionary:
-                dictionary[order] +=1
+                dictionary[order] += 1
             else:
                 dictionary[order] = 1
 
         if len(dictionary) == 1:
-            print (f'{dictionary[order]} order of {order} has been added to your order')
+            print(
+                f'{dictionary[order]} order of {order} has been added to your order')
         else:
             temp = ''
-            for order in dictionary:
-                temp += f" and {dictionary[order]} order of {order}"
-            print (f"{temp[4:]} have been added to your order")
-
+            temp +=' and '.join(f'{value} order of {key}' for key, value in dictionary.items())
+            print(f"{temp} have been added to your order")
+            
     print('''
     **************************************
     **😋This is summary of your order😋**
     **************************************
     ''')
     str = ""
-    for meal in dictionary:
-        str += f"{dictionary[meal]} order of {meal} and "
-    print(str[:-5:])
+    str +=' and '.join(f"{value} order of {key}" for key, value in dictionary.items())
+    print(str)
+
+
 get_orders()
 
 
-'''
+# dictionary = {}
 # while True:
 #     order = input(">")
 #     if order == "quit":
@@ -72,17 +75,21 @@ get_orders()
 #         break
 
 #     if order in collection:
-#         print(len(dictionary))
 #         if order not in dictionary:
-
-#             dictionary[order] += 1
+#             dictionary[order] = 1
 #             # print(
 #             #     f"** {dictionary[order]} order of {order} have been added to your meal **")
-#             str = ""
-#             for meal in dictionary:
-#                 str += f"{dictionary[meal]} order of {meal} and "
-#             print(str[:-5:]+" have been added to your meal")
 #         else:
-#             dictionary[order] = 1
+#             dictionary[order] += 1
 #             print(f"** {dictionary[order]} order of {order} have been added to your meal **")
-'''
+
+
+# print('''
+#     **************************************
+#     **😋This is summary of your order😋**
+#     **************************************
+#     ''')
+# str = ""
+# for meal in dictionary:
+#     str += f"{dictionary[meal]} order of {meal} and "
+# print(str[:-5:])
