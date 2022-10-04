@@ -65,31 +65,3 @@ def get_orders():
 
 
 get_orders()
-
-
-# dictionary = {}
-# while True:
-#     order = input(">")
-#     if order == "quit":
-#         print("Your order is being prepared ^^")
-#         break
-
-#     if order in collection:
-#         if order not in dictionary:
-#             dictionary[order] = 1
-#             # print(
-#             #     f"** {dictionary[order]} order of {order} have been added to your meal **")
-#         else:
-#             dictionary[order] += 1
-#             print(f"** {dictionary[order]} order of {order} have been added to your meal **")
-
-
-# print('''
-#     **************************************
-#     **😋This is summary of your order😋**
-#     **************************************
-#     ''')
-# str = ""
-# for meal in dictionary:
-#     str += f"{dictionary[meal]} order of {meal} and "
-# print(str[:-5:])
